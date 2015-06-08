@@ -4,7 +4,7 @@
   "description": "Layered configuration manager.",
   "main": "dist/ml-cfgr.js",
   "scripts": {
-    "test": "karma"
+    "test": "./node_modules/karma/bin/karma start --single-run"
   },
   "author": "Alican Çubukçuoğlu",
   "license": "MIT",
