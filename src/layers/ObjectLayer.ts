@@ -1,11 +1,11 @@
 /// <reference path="../../typings/tsd.d.ts" />
-import IMLLCFGRLayer = require('./IMLLCFGRLayer');
+import IMLLCFGRLayer from './IMLLCFGRLayer';
 
 /*
   Object Layer
 */
 
-class ObjectLayer implements IMLLCFGRLayer {
+export class ObjectLayer implements IMLLCFGRLayer {
 
   //constructor(name: string);
   constructor(public name: string, public obj: Object = {}) {}
@@ -23,5 +23,3 @@ class ObjectLayer implements IMLLCFGRLayer {
   }
 
 }
-
-export = ObjectLayer;

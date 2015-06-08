@@ -1,7 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
-import IMLLCFGRLayer = require('./IMLLCFGRLayer');
+import IMLLCFGRLayer from './IMLLCFGRLayer';
 
-class LocalStorageLayer implements IMLLCFGRLayer {
+export class LocalStorageLayer implements IMLLCFGRLayer {
 
   //constructor(name: string);
   constructor(public name: string, public prefix: string = '') {}
@@ -61,5 +61,3 @@ class LocalStorageLayer implements IMLLCFGRLayer {
   }
 
 }
-
-export = LocalStorageLayer;

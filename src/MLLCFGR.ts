@@ -1,13 +1,13 @@
 /// <reference path="../typings/tsd.d.ts" />
-import IMLLCFGRLayer = require('./layers/IMLLCFGRLayer');
-import LocalStorageLayer = require('./layers/LocalStorageLayer');
-import ObjectLayer = require('./layers/ObjectLayer');
+import IMLLCFGRLayer from './layers/IMLLCFGRLayer';
+import LocalStorageLayer from './layers/LocalStorageLayer';
+import ObjectLayer from './layers/ObjectLayer';
 
 /*
   MLLCFGR
 */
 
-class MLLCFGR {
+export class MLLCFGR {
 
   static LocalStorageLayer = LocalStorageLayer;
   static ObjectLayer = ObjectLayer;
@@ -123,5 +123,3 @@ class MLLCFGR {
   }
 
 }
-
-export = MLLCFGR;
