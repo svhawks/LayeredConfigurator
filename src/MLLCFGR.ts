@@ -25,13 +25,9 @@ class MLLCFGR {
 
   }
 
-  getLayer(name: string, strict: boolean = false): IMLLCFGRLayer {
+  getLayer(name: string): IMLLCFGRLayer {
 
     var layer = this.layers[name];
-
-    if (!layer && strict) {
-      throw `Layer "${name}" does not exist.`;
-    }
 
     return layer;
 
@@ -51,10 +47,10 @@ class MLLCFGR {
 
   }
 
-  removeLayer(name: string, strict: boolean = false): void {
+  removeLayer(name: string): void {
 
     // Get the layer
-    var layer = this.getLayer(name, strict);
+    var layer = this.getLayer(name);
 
     // Check if it's okay
     if (!layer) {
@@ -115,7 +111,11 @@ class MLLCFGR {
   set(path: string, value: any, layerName: string): void {
 
     // Get the layer
-    var layer = this.getLayer(layerName, true);
+    var layer = this.getLayer(layerName);
+
+    if (!layer) {
+      throw `Layer "${layerName}" does not exist.`;
+    }
 
     // Set the value
     layer.set(path, value);
