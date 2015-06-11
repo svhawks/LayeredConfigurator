@@ -1,4 +1,5 @@
 /// <reference path="../../typings/lodash/lodash.d.ts" />
+import * as _ from 'lodash';
 import IMLLCFGRLayer from './IMLLCFGRLayer';
 
 class LocalStorageLayer implements IMLLCFGRLayer {

@@ -8,24 +8,21 @@ Object.keys(window.__karma__.files).forEach(function(file) {
   }
 });
 
-console.log(allTestFiles);
-
 require.config({
   // Karma serves files under /base, which is the basePath from your config file
   baseUrl: '/base/dist',
 
   // example of using a couple path translations (paths), to allow us to refer to different library dependencies, without using relative paths
-  /*paths: {
-    'jquery': '../lib/jquery',
-    'underscore': '../lib/underscore',
+  paths: {
+    'lodash': 'http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash'
   },
 
   // example of using a shim, to load non AMD libraries (such as underscore)
   shim: {
-    'underscore': {
+    'lodash': {
       exports: '_'
     }
-  },*/
+  },
 
   // dynamically load all test files
   deps: allTestFiles,

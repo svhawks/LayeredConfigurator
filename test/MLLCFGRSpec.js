@@ -1,5 +1,7 @@
 define(['MLLCFGR'], function(MLLCFGR) {
 
+  MLLCFGR = MLLCFGR.default;
+
   var cfgr = new MLLCFGR();
 
   var objectLayer = new MLLCFGR.ObjectLayer('test');
@@ -22,7 +24,7 @@ define(['MLLCFGR'], function(MLLCFGR) {
 
       var gotLayer = cfgr.getLayer('test');
 
-      (gotLayer).should.be.exactly(undefined);
+      (gotLayer === undefined).should.be.true;
 
     });
 
