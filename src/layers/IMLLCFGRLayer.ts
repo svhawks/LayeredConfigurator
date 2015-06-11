@@ -9,4 +9,8 @@ interface IMLLCFGRLayer {
 
 }
 
-export = IMLLCFGRLayer;
+/*
+  Exports
+*/
+
+export default IMLLCFGRLayer;

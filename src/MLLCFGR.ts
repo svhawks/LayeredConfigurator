@@ -1,4 +1,4 @@
-/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../typings/lodash/lodash.d.ts" />
 import IMLLCFGRLayer from './layers/IMLLCFGRLayer';
 import LocalStorageLayer from './layers/LocalStorageLayer';
 import ObjectLayer from './layers/ObjectLayer';
@@ -7,7 +7,7 @@ import ObjectLayer from './layers/ObjectLayer';
   MLLCFGR
 */
 
-export class MLLCFGR {
+class MLLCFGR {
 
   static LocalStorageLayer = LocalStorageLayer;
   static ObjectLayer = ObjectLayer;
@@ -123,3 +123,9 @@ export class MLLCFGR {
   }
 
 }
+
+/*
+  Exports
+*/
+
+export default MLLCFGR;

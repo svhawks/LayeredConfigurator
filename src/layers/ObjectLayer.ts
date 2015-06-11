@@ -1,11 +1,11 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../../typings/lodash/lodash.d.ts" />
 import IMLLCFGRLayer from './IMLLCFGRLayer';
 
 /*
   Object Layer
 */
 
-export class ObjectLayer implements IMLLCFGRLayer {
+class ObjectLayer implements IMLLCFGRLayer {
 
   //constructor(name: string);
   constructor(public name: string, public obj: Object = {}) {}
@@ -23,3 +23,9 @@ export class ObjectLayer implements IMLLCFGRLayer {
   }
 
 }
+
+/*
+	Exports
+*/
+
+export default ObjectLayer;

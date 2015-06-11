@@ -1,7 +1,7 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../../typings/lodash/lodash.d.ts" />
 import IMLLCFGRLayer from './IMLLCFGRLayer';
 
-export class LocalStorageLayer implements IMLLCFGRLayer {
+class LocalStorageLayer implements IMLLCFGRLayer {
 
   //constructor(name: string);
   constructor(public name: string, public prefix: string = '') {}
@@ -61,3 +61,9 @@ export class LocalStorageLayer implements IMLLCFGRLayer {
   }
 
 }
+
+/*
+  Exports
+*/
+
+export default LocalStorageLayer;
