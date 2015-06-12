@@ -26,11 +26,23 @@ class MLLCFGR {
 
   }
 
-  getLayer(name: string): IMLLCFGRLayer {
+  getLayer(layer: IMLLCFGRLayer): IMLLCFGRLayer;
+  getLayer(layerName: string): IMLLCFGRLayer;
+  getLayer(layerOrLayerName: any): IMLLCFGRLayer {
 
-    var layer = this.layers[name];
+    if (typeof layerOrLayerName === 'object') {
 
-    return layer;
+      var layer = <IMLLCFGRLayer>layerOrLayerName;
+
+      return this.layers[layer.name];
+
+    } else if (typeof layerOrLayerName === 'string') {
+
+      var layerName = <string>layerOrLayerName;
+
+      return this.layers[layerName];
+
+    }
 
   }
 
@@ -48,19 +60,25 @@ class MLLCFGR {
 
   }
 
-  removeLayer(name: string): void {
+  removeLayer(layer: IMLLCFGRLayer): boolean;
+  removeLayer(layerName: string): boolean;
+  removeLayer(layerOrLayerName: any): boolean {
 
     // Get the layer
-    var layer = this.getLayer(name);
+    var layer = this.getLayer(layerOrLayerName);
 
-    // Check if it's okay
+    // Check if we could find a layer to remove
     if (!layer) {
-      return;
+      return false;
     }
 
+    // Remove layer's name from the priority list
     _.pull(this.priorities, layer.name);
 
-    delete this.layers[name];
+    // Remove layer from the layer list
+    delete this.layers[layer.name];
+
+    return true;
 
   }
 
@@ -109,13 +127,16 @@ class MLLCFGR {
 
   }
 
-  set(path: string, value: any, layerName: string): void {
+  set(path: string, value: any, layer: IMLLCFGRLayer): void;
+  set(path: string, value: any, layerName: string): void;
+  set(path: string, value: any, layerOrLayerName: any): void {
 
     // Get the layer
-    var layer = this.getLayer(layerName);
+    var layer = this.getLayer(layerOrLayerName);
 
+    // Check if we could find a layer
     if (!layer) {
-      throw `Layer "${layerName}" does not exist.`;
+      throw `Layer could not be found.`;
     }
 
     // Set the value
