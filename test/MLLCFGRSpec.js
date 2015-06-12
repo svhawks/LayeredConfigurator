@@ -20,9 +20,11 @@ define(['MLLCFGR'], function(MLLCFGR) {
 
     it('can remove a layer', function() {
 
-      cfgr.removeLayer('test');
+      var result = cfgr.removeLayer('test');
 
-      var gotLayer = cfgr.getLayer('test');
+      (result).should.be.true;
+
+      console.log('GOTLAYER: ', gotLayer);
 
       (gotLayer === undefined).should.be.true;
 
