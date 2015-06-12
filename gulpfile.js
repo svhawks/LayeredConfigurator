@@ -1,24 +1,25 @@
+var karma = require('karma').server;
 var gulp = require('gulp');
 var typescript = require('gulp-typescript');
 var tslint = require('gulp-tslint');
 var rimraf = require('gulp-rimraf');
 
-gulp.task('lint', function () {
+var lint = function lint() {
 
   return gulp.src('./src/**/*.ts')
     .pipe(tslint())
     .pipe(tslint.report('verbose'));
 
-});
+};
 
-gulp.task('clean', function () {
+var clean = function clean() {
 
   return gulp.src('./dist/')
     .pipe(rimraf());
 
-});
+};
 
-gulp.task('compile', ['clean', 'lint'], function () {
+var compile = function compile() {
 
   return gulp.src('./src/**/*.ts', {base: './src/'})
     .pipe(typescript({
@@ -27,6 +28,15 @@ gulp.task('compile', ['clean', 'lint'], function () {
     }))
     .pipe(gulp.dest('./dist/'));
 
-});
+};
 
-gulp.task('default', ['compile']);
+var test = function test(done) {
+
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
+
+}
+
+gulp.task('test', gulp.series(clean, compile, test));

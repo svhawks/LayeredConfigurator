@@ -4,12 +4,12 @@
   "description": "Layered configuration manager.",
   "main": "dist/ml-cfgr.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test": "node ./node_modules/gulp/bin/gulp.js test"
   },
   "author": "Alican Çubukçuoğlu",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.0",
+    "gulp": "gulpjs/gulp#4.0",
     "gulp-rimraf": "^0.1.1",
     "gulp-tslint": "^3.0.1-beta",
     "gulp-typescript": "^2.7.6",

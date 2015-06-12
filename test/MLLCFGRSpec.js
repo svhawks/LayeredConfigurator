@@ -24,7 +24,7 @@ define(['MLLCFGR'], function(MLLCFGR) {
 
       (result).should.be.true;
 
-      console.log('GOTLAYER: ', gotLayer);
+      var gotLayer = cfgr.getLayer('test');
 
       (gotLayer === undefined).should.be.true;
 
