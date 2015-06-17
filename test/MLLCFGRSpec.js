@@ -22,11 +22,11 @@ define(['MLLCFGR'], function(MLLCFGR) {
 
       var result = cfgr.removeLayer('test');
 
-      (result).should.be.true;
+      (result).should.be.exactly(true);
 
       var gotLayer = cfgr.getLayer('test');
 
-      (gotLayer === undefined).should.be.true;
+      (gotLayer === undefined).should.be.exactly(true);
 
     });
 

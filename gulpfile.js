@@ -37,6 +37,6 @@ var test = function test(done) {
     singleRun: true
   }, done);
 
-}
+};
 
 gulp.task('test', gulp.series(clean, compile, test));
